@@ -26,6 +26,13 @@ class YamlUtil:
             yaml.dump("", stream=f, allow_unicode=True)
 
     @staticmethod
+    def read_config_yaml(one_node, two_node):
+        path = os.path.join(YamlUtil.base_path, "config.yaml")
+        with open(path, 'r', encoding="utf-8") as f:
+            data = yaml.load(f, yaml.FullLoader)
+            return data[one_node][two_node]
+
+    @staticmethod
     def read_cases(yaml_name):
         case_path = os.path.join(YamlUtil.base_path, os.path.join("cases", yaml_name))
         with open(case_path, 'r', encoding="utf-8") as f:

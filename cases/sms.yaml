@@ -2,7 +2,7 @@
   name: 获取滑动验证码的sms_token
   request:
     method: post
-    url: http://wallet-dashboard.pinpula.com/pingpp/users/sms_captcha
+    url: /pingpp/users/sms_captcha
     data:
       "captcha_type": "blockPuzzle"
       "captcha_verification": "823e94401fa046ecb4fe5e8566c3825291083e8ae0b741c7a7a6db7f716cc648"

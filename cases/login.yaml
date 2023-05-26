@@ -2,7 +2,7 @@
   name: 用户登录
   request:
     method: post
-    url: http://wallet-dashboard.pinpula.com/pingpp/users/login
+    url: /pingpp/users/login
     data:
       "pwd": "e6WkmYPwqOXwlncxLzpqk49RtJ2XVIIYYXiR2aAwjOx/8DNpxWZGFQT5ux/imQBve5Hx53aMA1sCS+WMYHG4KT8Zz/o43ilpwrUTZITq3tnudlbccnv88am0cJ+Sy9NpFURPT7i5RxHrshY6cJFIGPtWDZcsStseEinGoxqNqrw="
       'sms_captcha': "888888"
@@ -15,7 +15,7 @@
   name: 用户登录
   request:
     method: post
-    url: http://wallet-dashboard.pinpula.com/pingpp/users/login
+    url: /pingpp/users/login
     data:
       "pwd": "e6WkmYPwqOXwlncxLzpqk49RtJ2XVIIYYXiR2aAwjOx/8DNpxWZGFQT5ux/imQBve5Hx53aMA1sCS+WMYHG4KT8Zz/o43ilpwrUTZITq3tnudlbccnv88am0cJ+Sy9NpFURPT7i5RxHrshY6cJFIGPtWDZcsStseEinGoxqNqrw="
       'sms_captcha': "888888"

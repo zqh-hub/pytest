@@ -1,26 +1,12 @@
--
-  name: 用户登录
+- name: 用户登录
   request:
     method: post
     url: /pingpp/users/login
-    data:
-      "pwd": "e6WkmYPwqOXwlncxLzpqk49RtJ2XVIIYYXiR2aAwjOx/8DNpxWZGFQT5ux/imQBve5Hx53aMA1sCS+WMYHG4KT8Zz/o43ilpwrUTZITq3tnudlbccnv88am0cJ+Sy9NpFURPT7i5RxHrshY6cJFIGPtWDZcsStseEinGoxqNqrw="
-      'sms_captcha': "888888"
-      'sms_token': ""
-      'username': "18521735360"
+    json:
+      pwd: "e6WkmYPwqOXwlncxLzpqk49RtJ2XVIIYYXiR2aAwjOx/8DNpxWZGFQT5ux/imQBve5Hx53aMA1sCS+WMYHG4KT8Zz/o43ilpwrUTZITq3tnudlbccnv88am0cJ+Sy9NpFURPT7i5RxHrshY6cJFIGPtWDZcsStseEinGoxqNqrw="
+      sms_captcha: "888888"
+      sms_token: ${sms_token}
+      username: "18521735360"
     headers:
       "Content-Type": "application/json"
-    validate: None
--
-  name: 用户登录
-  request:
-    method: post
-    url: /pingpp/users/login
-    data:
-      "pwd": "e6WkmYPwqOXwlncxLzpqk49RtJ2XVIIYYXiR2aAwjOx/8DNpxWZGFQT5ux/imQBve5Hx53aMA1sCS+WMYHG4KT8Zz/o43ilpwrUTZITq3tnudlbccnv88am0cJ+Sy9NpFURPT7i5RxHrshY6cJFIGPtWDZcsStseEinGoxqNqrw="
-      'sms_captcha': "888888"
-      'sms_token': ""
-      'username': ""
-    headers:
-      "Content-Type": "application/json"
-    validate: None
+  validate: None

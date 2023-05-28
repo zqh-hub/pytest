@@ -4,6 +4,7 @@ import re
 import requests
 import jsonpath
 from common.yaml_utils import YamlUtil
+from debug_talk import DebugTalk
 
 
 class RequestUtil:
@@ -55,22 +56,26 @@ class RequestUtil:
                 YamlUtil.write_extract_yaml(extract_data)
 
     @staticmethod
-    def replace_value(data):
-        if data and isinstance(data, dict):
-            str_data = json.dumps(data)
+    def replace_value(data_info):
+        if data_info and isinstance(data_info, dict):
+            str_data = json.dumps(data_info)
         else:
-            str_data = str(data)
+            str_data = str(data_info)
         for i in range(str_data.count("${")):
             if "${" in str_data and "}" in str_data:
                 start_index = str_data.index("${")
                 end_index = str_data.index("}")
                 old_value = str_data[start_index:end_index + 1]
-                new_value = YamlUtil.read_extract_yaml(old_value[2:-1])
+                fun_end_inx = old_value.index("(")
+                fun_name = old_value[2:fun_end_inx]
+                pars = old_value[fun_end_inx + 1:-2].split(",")
+                new_value = getattr(DebugTalk(), fun_name)(*pars)
+                # new_value = YamlUtil.read_extract_yaml(old_value[2:-1])
                 str_data = str_data.replace(old_value, str(new_value))
-        if isinstance(data, dict):
+        if isinstance(data_info, dict):
             new_data = json.loads(str_data)
         else:
-            new_data = data
+            new_data = data_info
         return new_data
 
     def send_request(self, method, uri, **kwargs):
@@ -84,3 +89,8 @@ class RequestUtil:
                 kwargs[key] = self.replace_value(value)
         response = RequestUtil.sess.request(method=method, url=full_url, **kwargs)
         return response
+
+
+if __name__ == '__main__':
+    data = {"username": "${random_num(11111111111,99999999999)}"}
+    RequestUtil.replace_value(data)

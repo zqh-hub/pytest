@@ -13,3 +13,19 @@
   extract:
     sms_token: r'(?<="data":")[^"]+(?=")'
   validate: None
+
+- name: 获取滑动验证码的sms_token
+  request:
+    method: post
+    url: /pingpp/users/sms_captcha
+    headers:
+      Content-Type: application/json
+    json:
+      "captcha_type": "blockPuzzle"
+      "captcha_verification": "823e94401fa046ecb4fe5e8566c3825291083e8ae0b741c7a7a6db7f716cc648"
+      "captcha_verification_token": "53018e298d40456c915465d6db3f2298"
+      "sms_captcha_type_enum": 0
+      "username": ${random_num(11111111111,99999999999)}
+  extract:
+    sms_token: r'(?<="data":")[^"]+(?=")'
+  validate: None
